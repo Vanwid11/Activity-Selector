@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="sprache.js"></script>
+    <title>Verkehrsverein</title>
+</head>
+
+<body>
+
+
+    <div class="content">
+
+        <div class="select">
+           
+
+                <p class="inline" id="selector0">Weather</p>
+                <button class="select-btn wetter" id="sel-btn0-good">Good</button>
+                <button class="select-btn wetter" id="sel-btn0-bad">Bad</button>
+                <button class="select-btn wetter" id="sel-btn0-all">Doesn't matter</button>
+
+                <br>
+
+                <p class="inline" id="selector1">Time</p>
+                <button class="select-btn zeit" id="sel-btn1-good">Day</button>
+                <button class="select-btn zeit" id="sel-btn1-bad">Evening</button>
+                <button class="select-btn zeit" id="sel-btn1-all">Doesn't matter</button>
+
+                <br>
+
+                <p class="inline" id="selector2">During Holidays</p>
+                <button class="select-btn ferien" id="sel-btn2-good">Yes</button>
+                <button class="select-btn ferien" id="sel-btn2-bad">No</button>
+                <button class="select-btn ferien" id="sel-btn2-all">Doesn't matter</button>
+            </div>
+
+           
+                <p class="inline" id="selector3">Kids</p>
+                <button class="select-btn kinder" id="sel-btn3-good">Yes</button>
+                <button class="select-btn kinder" id="sel-btn3-bad">No</button>
+                <button class="select-btn kinder" id="sel-btn3-all">Doesn't matter</button>
+
+                <br>
+
+                <p class="inline" id="selector4">Weekend</p>
+                <button class="select-btn wochenende" id="sel-btn4-good">Yes</button>
+                <button class="select-btn wochenende" id="sel-btn4-bad">No</button>
+                <button class="select-btn wochenende" id="sel-btn4-all">Doesn't matter</button>
+
+                <br>
+                
+
+
+                <button class="button" id="reset">reset</button>
+
+                <p class="inline">Results: </p>
+                <p class="inline" id="count">0</p>
+            </div>
+        </div>
+        <table class="table" id="table">
+            <tr>
+                <th id="th0">Activities</th>
+          
+            </tr>
+            <tr id="firstrow">
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+   
+        window.count = 0;
+        localStorage.setItem("oldLangCode", "de");
+        localStorage.setItem("langCode", "de");
+        renderNormal();
+        loadSprache("de");
+    });
+
+    $("#reset").click(
+        function () {
+            resetcount();
+            var collection = $(".row");
+            collection.each(function () {
+                $(this).remove();
+            });
+            var count = 0;
+            $.getJSON('ausflug.json', function (data) {
+                ausflug = data.items;
+                $.each(ausflug, function (key, val) {
+                    count = inc(count);
+                    $(`<tr class="row" id="row">  <td>${(val.name)}</td>   </tr> `).insertAfter("#firstrow");
+                });
+                col = $(".select-btn");
+                col.each(function () {
+                    $(".select-btn").css("background-color", "transparent");
+                });
+            });
+        }
+    );
+
+    function renderNormal() {
+        var counter = 0;
+        $.getJSON('ausflug.json', function (data) {
+            ausflug = data.items;
+            $.each(ausflug, function (key, val) {
+                counter = inc(counter);
+                $(`<tr class="row" id="row">  <td>${val.name}</td>    </tr> `).insertAfter("#firstrow");
+
+            });
+           
+            });
+  
+    };
+
+    function inc(current) {
+        var count = current;
+        count++;
+        window.count = count;
+        $("#count").text(count);
+        return count;
+    }
+    function resetcount() {
+        window.count = 0;
+        $("#count").text("0");
+    }
+
+    $(".select-btn").click(function () {
+        id = $(this).attr("class").replace('select-btn ', '');
+        var col = $("." + id);
+        col.each(function () {
+            $(this).css("background-color", "transparent");
+        });
+        $(this).css("background-color", "rgba(0, 0, 0, 0.462)");
+
+        rerender(id, $(this).text());
+    });
+
+    function rerender(criteria, value) {
+        empty();
+
+        $.getJSON('ausflug.json', function (data) {
+            ausflug = data.items;
+            var newcount = 0;
+            $.each(ausflug, function (key, val) {
+                resetcount();
+                switch (criteria) {
+                    case 'wetter':
+                        if (val.weather == value || value == 'all' || val.weather == 'all') { insert() };
+                        break;
+                    case 'zeit':
+                        if (val.time == value || value == 'all' || val.time == 'all') { insert() };
+                        break;
+                    case 'ferien':
+                        if (val.holiday == value || value == 'all' || val.holiday == 'all') { insert() };
+                        break;
+                    case 'kinder':
+                        if (val.kids == value || value == 'all' || val.kids == 'all') { insert() };
+                        break;
+                    case 'wochenende':
+                        if (val.open == value || value == 'all' || val.open == 'all') { insert() };
+                        break;
+                }
+                function insert() {
+                    newcount = inc(newcount);
+                    $(`<tr class="row" id="row">  <td>${(val.name)}</td>   </tr> `).insertAfter("#firstrow");
+                }
+            });
+        });
+    };
+
+    function empty() {
+        var collection = $(".row");
+        collection.each(function () {
+            $(this).remove();
+        });
+    };
+
+    $(".link").click(function () {
+        loadSprache($(this).text());
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,166 @@
+{
+    "items": [
+    {
+        "name": "Bowling",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "all",
+        "open": "nein",
+        "kids": "ja",
+        "holiday": "nein"
+    },    
+    {
+        "name": "Bowling weekend",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "all",
+        "open": "ja",
+        "kids": "ja",
+        "holiday": "nein"
+    },
+    {
+        "name": "Outdoor swimming",
+        "date": "01.08.2022",
+        "weather": "gut",
+        "time": "tag",
+        "open": "nein",
+        "kids": "all",
+        "holiday": "all"
+    },
+    {
+        "name": "Indoor swimming",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "all",
+        "open": "nein",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Hiking",
+        "date": "01.08.2022",
+        "weather": "gut",
+        "time": "tag",
+        "open": "all",
+        "kids": "all",
+        "holiday": "all"
+    },
+    {
+        "name": "Musical course",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "nacht",
+        "open": "ja",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Breadbaking course",
+        "date": "01.08.2022",
+        "weather": "schlecht",
+        "time": "tag",
+        "open": "ja",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Breadbaking course evening",
+        "date": "01.08.2022",
+        "weather": "schlecht",
+        "time": "nacht",
+        "open": "ja",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Slate mine",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "tag",
+        "open": "all",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Slate mine evening",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "nacht",
+        "open": "all",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Go-Course weekend",
+        "date": "01.08.2022",
+        "weather": "schlecht",
+        "time": "tag",
+        "open": "ja",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Go-Course under the week",
+        "date": "01.08.2022",
+        "weather": "schlecht",
+        "time": "nacht",
+        "open": "nein",
+        "kids": "all",
+        "holiday": "nein"
+    },
+    {
+        "name": "Biliard",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "nacht",
+        "open": "nein",
+        "kids": "nein",
+        "holiday": "all"
+    },
+    {
+        "name": "Biliard weekend",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "nacht",
+        "open": "ja",
+        "kids": "nein",
+        "holiday": "all"
+    },
+    {
+        "name": "Race Car Driving",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "tag",
+        "open": "ja",
+        "kids": "nein",
+        "holiday": "ja"
+    },
+    {
+        "name": "Basket weaving",
+        "date": "01.08.2022",
+        "weather": "schlecht",
+        "time": "all",
+        "open": "nein",
+        "kids": "all",
+        "holiday": "ja"
+    },
+    {
+        "name": "Waterfall visit",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "tag",
+        "open": "all",
+        "kids": "all",
+        "holiday": "all"
+    },
+    {
+        "name": "Trip to the zoo",
+        "date": "01.08.2022",
+        "weather": "all",
+        "time": "all",
+        "open": "all",
+        "kids": "all",
+        "holiday": "all"
+    }
+    ]
+}

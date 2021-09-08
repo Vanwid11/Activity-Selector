@@ -1,0 +1,112 @@
+:root {
+    --border-color: rgba(89, 81, 117, 0.795);
+    --background-color: rgba(229, 214, 253, 0.836);
+    --font-color: rgb(102, 96, 134);
+  }
+  
+  body {
+    background-color: var(--background-color);
+    text-align: left;
+    font-family: "Times New Roman", Times, monospace;
+    color: var(--font-color);
+    position: left;
+  }
+  
+  .select {
+
+    width: 30%;
+  }
+  
+  .inline {
+    display: inline-block;
+  }
+  
+  .block {
+    display: inline-block;
+    width: 50%;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .block {
+      display: block;
+      width: 50%;
+    }
+  }
+  @media screen and (max-width: 300px) {
+    .inline {
+      display: block;
+    }
+  }
+  
+  .select-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid var(--border-color);
+    color: var(--font-color);
+    background-color: transparent;
+    display: inline-block;
+  }
+  
+  #reset {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid var(--border-color);
+    color: var(--font-color);
+    background-color: transparent;
+    display: inline-block;
+  }
+  
+  table {
+
+    padding: 5px, 10px;
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    width: 20%;
+    position: left;
+  }
+  
+  th,
+  td {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    position: left;
+  align-content:center ;
+    
+  }
+  
+  @media screen and (max-width: 100000px) {
+    .lang-select {
+      position:left;
+   
+    }
+  }
+  
+  .button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+  }
+  #link{
+      display: inline-block   ;
+      text-decoration: none;
+      margin-bottom: 0;
+  }
+  
+
+
+
+  
+  table, th, td {
+    border: 1px solid  rgb(102, 96, 134);
+    border-collapse: collapse;
+  }
+  
+  tr:nth-child(even) {
+    background-color: rgba(163, 150, 212, 0.4);
+  }
